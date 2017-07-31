@@ -3,7 +3,7 @@ var cucumber_junit = require('../lib/cucumber_junit'),
     rawInput = '';
 
 var argv = require('yargs')
-    .usage('Usage: $0 --strict --indent 4 --encoding UTF-8')
+    .usage('Usage: $0 --strict --indent 4 --encoding UTF-8 --scope scenario')
     .alias('s', 'strict')
     .boolean('s')
     .describe('s', 'Report pending or undefined steps as failures')
@@ -13,6 +13,9 @@ var argv = require('yargs')
     .alias('e', 'encoding')
     .default('e', 'UTF-8')
     .describe('e', 'passed to the XML formatter')
+		.alias('c', 'scope')
+    .default('c', 'step')
+    .describe('c', 'parse scenarios or steps as testcase junit xml tag')
     .help('h')
     .alias('h', 'help')
     .argv;
